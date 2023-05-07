@@ -1,0 +1,313 @@
+{% extends 'shared/_layout.html' %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block content %}
+    <!-- body -->
+    <body class="main-layout">
+    <!-- loader  -->
+    {% comment %}    <div class="loader_bg">
+        <div class="loader"><img src="/static/images/loading.gif" alt="#"/></div>
+    </div>{% endcomment %}
+
+    {#    # this gif ✔✔✔ ^^^#}
+
+
+    <!-- end loader -->
+    <!-- header -->
+    <header>
+        <!-- header inner -->
+        <div class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
+                        <div class="full">
+                            <div class="center-desk">
+                                <div class="logo">
+                                    <a href=""><img src="/static/images/logo.png" alt="#"/></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+                        <nav class="navigation navbar navbar-expand-md navbar-dark ">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                    data-target="#navbarsExample04" aria-controls="navbarsExample04"
+                                    aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarsExample04">
+                                <ul class="navbar-nav mr-auto">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'login_page' %}">Login</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/admin">admin</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'contact_us' %}">Contact us</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#about">About</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- end header inner -->
+    <!-- end header -->
+    <!-- banner -->
+    <section class="banner_main">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="text-bg">
+                        <div class="padding_lert">
+
+                            <h1>{{ setting_h.title }}</h1>
+
+                            <span>{{ setting_h.description }}</span>
+                            <p>{{ setting_h.address }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end banner -->
+    <!-- form_lebal -->
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="check-in">Check-in Date:</label>
+                            <input type="date" class="form-control" id="check-in" name="check_in" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="check-out">Check-out Date:</label>
+                            <input type="date" class="form-control" id="check-out" name="check_out" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="num-guests">Number of Guests:</label>
+                            <input type="number" class="form-control" id="num-guests" name="num_guests" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end form_lebal -->
+    <!-- choose  section -->
+    <div class="choose">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="choose_box">
+                        <div class="titlepage">
+                            <h2><span class="text_norlam">{{ setting_h.title_room }}</span> <br></h2>
+                        </div>
+                        <p> {{ setting_h.description_room }} </p>
+                        <a class="read_more" href="#">توضیحات بیشتر</a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="img_box">
+                                <figure><img src="/static/images/img1.jpg" alt="#"/></figure>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="img_box">
+                                <figure><img src="/static/images/img2.jpg" alt="#"/></figure>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="img_box">
+                                <figure><img src="/static/images/img3.jpg" alt="#"/></figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end choose  section -->
+    <!-- our  section -->
+    <div class="our">
+        <div class="container">
+            <div class="row d_flex">
+                <div class="col-md-6">
+                    <div class="img_box">
+                        <figure><img src="/static/images/img4.jpg" alt="#"/></figure>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="our_box">
+                        <div class="titlepage">
+                            <h2><span class="text_norlam">{{ food_h.title }} </span> <br></h2>
+                        </div>
+                        <p> {{ food_h.description }} </p>
+                        <a class="read_more" href="#">توضیحات بیشتر</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end our  section -->
+    <!-- about -->
+    <div id="about" class="about">
+        <div class="container-fluid">
+            <div class="row d_flex">
+                <div class="col-md-6">
+                    <div class="about_text">
+                        <div class="titlepage" dir="rtl">
+                            <h2>{{ about.title }}</h2>
+                            <p>{{ about.description }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="about_img">
+                        <figure><img src="/static/images/about_img.jpg" alt="#"/></figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end about -->
+    <!-- testimonial -->
+    {% comment %}<div class="testimonial">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="titlepage">
+                        <h2>مشتری</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="myCarousel" class="carousel slide testimonial_Carousel " data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                        </ol>
+
+
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="container">
+                                    <div class="carousel-caption ">
+                                        <div class="row">
+                                            <div class="col-md-6 margin_boot">
+                                                <div class="test_box">
+                                                    <h4>Mark jonson</h4>
+                                                    <i><img src="/static/images/te1.png" alt="#"/></i>
+                                                    <p>There are many variations of passages of Lorem Ipsum available,
+                                                        but the majority have suffered alteration in some form, by
+                                                        injected humour,</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="test_box">
+                                                    <h4>Mac Du</h4>
+                                                    <i><img src="/static/images/te1.png" alt="#"/></i>
+                                                    <p>There are many variations of passages of Lorem Ipsum available,
+                                                        but the majority have suffered alteration in some form, by
+                                                        injected humour,</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="container">
+                                    <div class="carousel-caption">
+                                        <div class="row">
+                                            <div class="col-md-6 margin_boot">
+                                                <div class="test_box">
+                                                    <h4>Mark jonson</h4>
+                                                    <i><img src="/static/images/te1.png" alt="#"/></i>
+                                                    <p>There are many variations of passages of Lorem Ipsum available,
+                                                        but the majority have suffered alteration in some form, by
+                                                        injected humour,</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="test_box">
+                                                    <h4>Mac Du</h4>
+                                                    <i><img src="/static/images/te1.png" alt="#"/></i>
+                                                    <p>There are many variations of passages of Lorem Ipsum available,
+                                                        but the majority have suffered alteration in some form, by
+                                                        injected humour,</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="container">
+                                    <div class="carousel-caption">
+                                        <div class="row">
+                                            <div class="col-md-6 margin_boot">
+                                                <div class="test_box">
+                                                    <h4>Mark jonson</h4>
+                                                    <i><img src="/static/images/te1.png" alt="#"/></i>
+                                                    <p>There are many variations of passages of Lorem Ipsum available,
+                                                        but the majority have suffered alteration in some form, by
+                                                        injected humour,</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="test_box">
+                                                    <h4>Mac Du</h4>
+                                                    <i><img src="/static/images/te1.png" alt="#"/></i>
+                                                    <p>There are many variations of passages of Lorem Ipsum available,
+                                                        but the majority have suffered alteration in some form, by
+                                                        injected humour,</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>{% endcomment %}
+    <!-- end testimonial -->
+    <!--  footer -->
+
+    <!-- end footer -->
+    <!-- Javascript files-->
+
+    </body>
+
+{% endblock %}

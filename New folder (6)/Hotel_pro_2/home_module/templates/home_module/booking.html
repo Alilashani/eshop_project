@@ -1,0 +1,91 @@
+{% extends 'shared/_layout.html' %}
+
+{% block title %}
+    کصشر
+{% endblock %}
+
+{% block content %}
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Contact Us</title>
+        <style>
+            body {
+                background-color: #f2f2f2;
+                font-family: Arial, sans-serif;
+            }
+
+            h2 {
+                text-align: center;
+                margin-top: 50px;
+                color: #333;
+            }
+
+            form {
+                width: 50%;
+                margin: 0 auto;
+                background-color: white;
+                padding: 20px;
+                border-radius: 5px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            }
+
+            input[type=text], input[type=email], textarea {
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                box-sizing: border-box;
+                border: none;
+                border-bottom: 2px solid #ccc;
+                resize: none;
+            }
+
+            input[type=submit] {
+                background-color: #333;
+                color: white;
+                padding: 12px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                float: right;
+            }
+
+            input[type=submit]:hover {
+                background-color: #555;
+            }
+
+        </style>
+    </head>
+    <body>
+    <h2>Contact Us</h2>
+    <form action="" method="post" dir="rtl">
+        <center>
+            <label for="name">نام:</label>
+            <input type="text" id="name" name="name" required>
+        </center>
+
+        <center>
+            <label for="email">ایمیل:</label>
+            <input type="email" id="email" name="email" required>
+        </center>
+
+        <center>
+            <label for="date"> تاریخ ورود:</label>
+            <input type="date" id="date" name="date" required>
+        </center>
+
+        <hr>
+
+        <center>
+            <label for="date">تاریخ خروج:</label>
+            <input type="date" id="date" name="date" required>
+        </center>
+
+        <hr>
+        <center>
+            <button type="submit" class="btn btn-success">ارسال</button>
+        </center>
+    </form>
+    </body>
+    </html>
+{% endblock %}
